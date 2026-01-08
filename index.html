@@ -28,7 +28,7 @@ body {
   line-height: 1.65;
 }
 
-/* NAVBAR */
+/* ---------- NAVBAR ---------- */
 nav {
   position: sticky;
   top: 0;
@@ -56,7 +56,7 @@ nav a {
 
 nav a:hover { color: var(--text); }
 
-/* SECTIONS */
+/* ---------- SECTIONS ---------- */
 .section {
   max-width: 1100px;
   margin: auto;
@@ -73,6 +73,10 @@ h2 {
   margin-bottom: 40px;
 }
 
+h3 {
+  margin: 0;
+}
+
 .card {
   background: var(--card);
   border-radius: 20px;
@@ -80,7 +84,7 @@ h2 {
   box-shadow: 0 20px 50px rgba(0,0,0,0.06);
 }
 
-/* HERO */
+/* ---------- HERO ---------- */
 .hero {
   min-height: 90vh;
   display: flex;
@@ -97,8 +101,8 @@ h2 {
 
 .hero .buttons a {
   display: inline-block;
-  margin: 16px 8px 0;
-  padding: 12px 26px;
+  margin: 20px 10px 0;
+  padding: 14px 30px;
   border-radius: 999px;
   background: white;
   color: black;
@@ -106,22 +110,35 @@ h2 {
   font-weight: 500;
 }
 
-/* ABOUT */
+/* ---------- ABOUT ---------- */
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 56px;
+  align-items: center;
 }
 
 .about img {
   width: 100%;
-  border-radius: 24px;
+  border-radius: 28px;
 }
 
-/* TIMELINE */
+/* ---------- METRICS ---------- */
+.metrics {
+  display: flex;
+  gap: 48px;
+  margin-top: 32px;
+}
+
+.metric strong {
+  font-size: 28px;
+  color: var(--accent);
+}
+
+/* ---------- TIMELINE ---------- */
 .timeline {
   position: relative;
-  margin-top: 40px;
+  margin-top: 48px;
 }
 
 .timeline::before {
@@ -136,14 +153,14 @@ h2 {
 
 .timeline-item {
   display: flex;
-  margin-bottom: 64px;
+  margin-bottom: 72px;
 }
 
 .timeline-item.left { justify-content: flex-start; }
 .timeline-item.right { justify-content: flex-end; }
 
 .timeline-card {
-  width: 45%;
+  width: 44%;
   position: relative;
 }
 
@@ -155,17 +172,32 @@ h2 {
   color: var(--accent);
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-/* SKILLS */
+/* ---------- SKILLS ---------- */
 .skills {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
   gap: 32px;
 }
 
-/* FOOTER */
+/* ---------- CONTACT ---------- */
+.contact {
+  text-align: center;
+}
+
+.contact a {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 14px 36px;
+  background: var(--accent);
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+/* ---------- FOOTER ---------- */
 footer {
   text-align: center;
   padding: 32px;
@@ -177,10 +209,11 @@ footer {
 <body>
 
 <nav>
-  <div class="logo">RR</div>
+  <div class="logo">Rajath</div>
   <div>
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
@@ -191,10 +224,10 @@ footer {
 <section class="hero">
   <div class="section">
     <h1>Hi, I’m Rajath 👋</h1>
-    <p>RTL Design · SoC Architecture · Hardware Acceleration</p>
+    <p>RTL Design · SoC Microarchitecture · ASIC & Hardware Acceleration</p>
     <div class="buttons">
-      <a href="assets/resume.pdf">Resume</a>
-      <a href="assets/transcripts.pdf">Transcripts</a>
+      <a href="assets/resume.pdf">View Resume</a>
+      <a href="#contact">Get in Touch</a>
     </div>
   </div>
 </section>
@@ -205,20 +238,35 @@ footer {
     <div>
       <h2>My Journey</h2>
       <p>
-        I’m a Master’s student in Electrical Engineering at the University of Pennsylvania
-        with industry experience at Qualcomm, working on production ASICs and SoCs.
+        I’m an RTL Design Engineer with industry experience building and optimizing SoC IPs
+        for high-volume mobile silicon. My work spans microarchitecture, RTL implementation,
+        and system-level integration, with a strong focus on performance, power, and correctness.
       </p>
       <p>
-        My interests lie in RTL design, microarchitecture, and performance-driven hardware systems.
+        At Qualcomm, I’ve worked on production IPs that ship in real devices—designing complex
+        RTL blocks, resolving CDC and integration issues, and optimizing PPA trade-offs under
+        real tape-out constraints. I enjoy working close to the hardware, where architectural
+        decisions directly translate into silicon behavior.
       </p>
+      <div class="metrics">
+        <div class="metric">
+          <strong>2+</strong><br>Years Industry Experience
+        </div>
+        <div class="metric">
+          <strong>3</strong><br>Production IPs
+        </div>
+        <div class="metric">
+          <strong>50+</strong><br>SoC Cores Touched
+        </div>
+      </div>
     </div>
-    <img src="assets/profile.jpg">
+    <img src="assets/profile.jpg" alt="Rajath Ramana">
   </div>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience" class="section">
-  <h2>Experience</h2>
+  <h2>Professional Experience</h2>
 
   <div class="timeline">
 
@@ -227,8 +275,10 @@ footer {
         <span class="badge">Jul 2023 – Aug 2025</span>
         <h3>RTL Design Engineer — Qualcomm</h3>
         <p>
-          Led RTL design of CMSR/TCSR IPs, optimized fuse architectures eliminating ~60K flops,
-          automated SoC integration, and resolved CDC/lint issues across 50+ cores.
+          Led RTL design of CMSR and TCSR IPs used in high-volume mobile SoCs. Architected centralized
+          fuse distribution logic eliminating ~60K retention flops, automated SoC integration using
+          Python and Tcl, resolved CDC and lint issues across 50+ cores, and executed post-code-freeze
+          ECOs in coordination with DV and PD teams.
         </p>
       </div>
     </div>
@@ -238,8 +288,9 @@ footer {
         <span class="badge">Jan 2023 – Jun 2023</span>
         <h3>RTL Design Intern — Qualcomm</h3>
         <p>
-          Assisted in RTL development and verification of SoC IP blocks, gained exposure to
-          synthesis, CDC, and post-code-freeze ECO flows.
+          Assisted in RTL development and verification of SoC IP blocks, gained hands-on exposure to
+          synthesis, CDC analysis, linting, and ECO flows while collaborating with senior designers
+          on production silicon.
         </p>
       </div>
     </div>
@@ -251,18 +302,17 @@ footer {
 <section id="skills" class="section">
   <h2>Expertise</h2>
   <div class="skills">
-    <div class="card">RTL Design · ASIC · SoC · CDC · FPGA</div>
-    <div class="card">Verilog · SystemVerilog · C/C++ · Python</div>
-    <div class="card">VCS · Verdi · Vivado · SpyGlass</div>
+    <div class="card">RTL Design · ASIC · SoC · CDC/RDC · FPGA</div>
+    <div class="card">Verilog · SystemVerilog · C/C++ · Python · CUDA</div>
+    <div class="card">VCS · Verdi · Vivado · SpyGlass · Linux</div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="card" style="text-align:center;">
-    <h2>Let’s Connect</h2>
-    <a href="mailto:rajathramana23@gmail.com">rajathramana23@gmail.com</a>
-  </div>
+<section id="contact" class="section contact">
+  <h2>Let’s Connect</h2>
+  <p>Open to ASIC, RTL design, and hardware acceleration opportunities.</p>
+  <a href="mailto:rajathramana23@gmail.com">Email Me</a>
 </section>
 
 <footer>
