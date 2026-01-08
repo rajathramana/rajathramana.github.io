@@ -171,6 +171,33 @@ h3 { font-size: 20px; font-weight: 600; }
   box-shadow: var(--shadow);
 }
 
+/* LINKS (NEW) */
+a.inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a.inline-link:hover {
+  text-decoration: underline;
+}
+
+/* GPA BADGE (NEW) */
+.gpa-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 14px;
+}
+
 /* EXPERIENCE */
 .timeline {
   position: relative;
@@ -294,76 +321,6 @@ h3 { font-size: 20px; font-weight: 600; }
   </div>
 </section>
 
-<section id="about" class="section alt">
-  <div class="about">
-    <div>
-      <h2>My Journey</h2>
-
-      <p class="about-text">
-        My passion lies in designing efficient and reliable digital systems at the intersection
-        of RTL design, SoC microarchitecture, and hardware acceleration. I enjoy translating
-        architectural ideas into clean, production-quality RTL that scales to real silicon.
-      </p>
-
-      <p class="about-text">
-        Currently, I’m pursuing a Master’s degree in Electrical Engineering at the University
-        of Pennsylvania. I completed my undergraduate degree in Electrical and Electronics
-        Engineering at the National Institute of Technology Tiruchirappalli, India.
-      </p>
-
-      <p class="about-text">
-        Previously, I worked as an RTL Design Engineer at Qualcomm, where I contributed to
-        production IPs used in high-volume mobile SoCs across microarchitecture definition,
-        RTL implementation, CDC resolution, automation flows, and post-code-freeze ECOs.
-      </p>
-
-      <p class="about-text">
-        I have also worked on hardware–software co-design projects and accelerators during
-        my academic career, including compression engines, cryptographic accelerators,
-        and GPU kernel optimizations.
-      </p>
-
-      <p class="about-text">
-        During my undergraduate studies, I actively contributed to technical clubs and
-        collaborative engineering projects, mentoring peers and engaging in research-driven work.
-      </p>
-    </div>
-
-    <img src="assets/profile_2.jpeg" alt="Rajath">
-  </div>
-</section>
-
-<section id="experience" class="section">
-  <h2>Professional Experience</h2>
-  <div class="timeline">
-
-    <div class="timeline-item left">
-      <span class="timeline-dot"></span>
-      <div class="card">
-        <h3>Qualcomm</h3>
-        <p class="muted">RTL Design Engineer · Jul 2023 – Aug 2025</p>
-        <p>
-          Led RTL design of CMSR and TCSR IPs, eliminated ~60K retention flops, automated SoC
-          integration, resolved CDC issues across 50+ cores, and executed ECOs on production silicon.
-        </p>
-      </div>
-    </div>
-
-    <div class="timeline-item right">
-      <span class="timeline-dot"></span>
-      <div class="card">
-        <h3>Qualcomm</h3>
-        <p class="muted">Interim Intern, Hardware · May 2022 – July 2022</p>
-        <p>
-          Assisted in RTL development and verification with exposure to synthesis, CDC analysis,
-          and linting for the global clock controller IP team.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <section id="education" class="section alt">
   <h2>Education</h2>
 
@@ -371,57 +328,16 @@ h3 { font-size: 20px; font-weight: 600; }
     <div class="card">
       <h3>University of Pennsylvania</h3>
       <p class="muted">M.S. Electrical Engineering</p>
-      <a href="assets/transcript-ms.pdf">MS Transcript</a>
+      <span class="gpa-badge">GPA: 4.00 / 4.00</span><br>
+      <a class="inline-link" href="assets/transcript-ms.pdf">View Transcript →</a>
     </div>
 
     <div class="card">
       <h3>NIT Tiruchirappalli</h3>
       <p class="muted">B.Tech Electrical & Electronics Engineering</p>
-      <a href="assets/transcript-btech.pdf">B.Tech Transcript</a>
+      <span class="gpa-badge">GPA: 3.89 / 4.00</span><br>
+      <a class="inline-link" href="assets/transcript-btech.pdf">View Transcript →</a>
     </div>
-  </div>
-</section>
-
-<section id="projects" class="section">
-  <h2>Projects</h2>
-
-  <div class="projects-grid">
-    <div class="card">
-      <h3>Heterogeneous Compression Engine</h3>
-      <p>400 Mb/s real-time compression on ARM + FPGA</p>
-      <a href="projects/compression.html">View Project →</a>
-    </div>
-
-    <div class="card">
-      <h3>Hardware Cryptographic Accelerator</h3>
-      <p>AES-GCM, SHA-256, ECDSA/ECDH RTL accelerator</p>
-      <a href="projects/crypto.html">View Project →</a>
-    </div>
-
-    <div class="card">
-      <h3>CUDA Sparse Kernel Optimization</h3>
-      <p>Warp-specialized CSR SpMM kernels</p>
-      <a href="projects/cuda.html">View Project →</a>
-    </div>
-  </div>
-</section>
-
-<section id="skills" class="section alt">
-  <h2>Skills & Expertise</h2>
-
-  <div class="skills-grid">
-    <div class="skill-pill">RTL Design · ASIC/SoC/FPGA Microarchitecture · CDC/RDC · PPA Analysis</div>
-    <div class="skill-pill">Verilog · SystemVerilog · C/C++ · Python · CUDA · Tcl · Perl </div>
-    <div class="skill-pill">VCS · Verdi · Vivado · SpyGlass · Linux · Cadence · Vitis · ModelSim</div>
-  </div>
-</section>
-
-<section id="contact" class="section">
-  <h2>Contact</h2>
-
-  <div class="contact-card">
-    <p>Let’s build something meaningful.</p>
-    <a href="mailto:rajath@seas.upenn.edu">Email Me</a>
   </div>
 </section>
 
