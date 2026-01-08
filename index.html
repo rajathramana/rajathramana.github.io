@@ -100,29 +100,6 @@ h2 {
 h3 { font-size: 20px; font-weight: 600; }
 .muted { color: var(--muted); }
 
-/* LINK STYLING — NEW (minimal, safe) */
-.section a {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.section a:hover {
-  text-decoration: underline;
-}
-
-/* GPA BADGE — NEW */
-.gpa {
-  display: inline-block;
-  margin-top: 6px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-size: 14px;
-  font-weight: 600;
-}
-
 /* HERO */
 .hero {
   min-height: 95vh;
@@ -288,6 +265,26 @@ h3 { font-size: 20px; font-weight: 600; }
   }
   .timeline-dot { left: 2px !important; }
 }
+
+/* ===== ADDED ONLY ===== */
+.section a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.section a:hover {
+  text-decoration: underline;
+}
+.gpa {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+}
 </style>
 </head>
 
@@ -317,12 +314,33 @@ h3 { font-size: 20px; font-weight: 600; }
   </div>
 </section>
 
-<!-- ABOUT, EXPERIENCE, PROJECTS, SKILLS, CONTACT -->
-<!-- UNCHANGED FROM YOUR ORIGINAL -->
+<section id="about" class="section alt">
+  <div class="about">
+    <div>
+      <h2>My Journey</h2>
+      <p class="about-text">My passion lies in designing efficient and reliable digital systems at the intersection of RTL design, SoC microarchitecture, and hardware acceleration.</p>
+      <p class="about-text">Currently, I’m pursuing a Master’s degree in Electrical Engineering at the University of Pennsylvania.</p>
+      <p class="about-text">Previously, I worked as an RTL Design Engineer at Qualcomm.</p>
+    </div>
+    <img src="assets/profile_2.jpeg" alt="Rajath">
+  </div>
+</section>
+
+<section id="experience" class="section">
+  <h2>Professional Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item left">
+      <span class="timeline-dot"></span>
+      <div class="card">
+        <h3>Qualcomm</h3>
+        <p class="muted">RTL Design Engineer · Jul 2023 – Aug 2025</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="education" class="section alt">
   <h2>Education</h2>
-
   <div class="projects-grid">
     <div class="card">
       <h3>University of Pennsylvania</h3>
@@ -330,13 +348,36 @@ h3 { font-size: 20px; font-weight: 600; }
       <span class="gpa">GPA: 4.00 / 4.00</span><br>
       <a href="assets/transcript-ms.pdf">MS Transcript</a>
     </div>
-
     <div class="card">
       <h3>NIT Tiruchirappalli</h3>
       <p class="muted">B.Tech Electrical & Electronics Engineering</p>
       <span class="gpa">GPA: 3.89 / 4.00</span><br>
       <a href="assets/transcript-btech.pdf">B.Tech Transcript</a>
     </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="card">
+      <h3>Heterogeneous Compression Engine</h3>
+      <a href="projects/compression.html">View Project →</a>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section alt">
+  <h2>Skills & Expertise</h2>
+  <div class="skills-grid">
+    <div class="skill-pill">RTL Design · ASIC/SoC/FPGA</div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <div class="contact-card">
+    <a href="mailto:rajath@seas.upenn.edu">Email Me</a>
   </div>
 </section>
 
