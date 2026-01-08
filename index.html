@@ -8,24 +8,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+/* ================= THEME VARIABLES ================= */
 :root {
-  --bg-main: #f5f7fb;
+  --bg-main: #f6f8fc;
   --bg-alt: #ffffff;
   --card: #ffffff;
   --text: #0f172a;
   --muted: #64748b;
-  --accent: #f59e0b;
-  --accent-soft: rgba(245,158,11,0.15);
+  --accent: #2563eb;
+  --accent-soft: #dbeafe;
+  --highlight: #f59e0b;
   --line: #e5e7eb;
+  --shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-* {
-  box-sizing: border-box;
+[data-theme="dark"] {
+  --bg-main: #020617;
+  --bg-alt: #020617;
+  --card: #020617;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #60a5fa;
+  --accent-soft: rgba(96,165,250,0.2);
+  --highlight: #fbbf24;
+  --line: #1e293b;
+  --shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -33,11 +45,10 @@ body {
   background: var(--bg-main);
   color: var(--text);
   line-height: 1.75;
-  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 /* ================= NAV ================= */
-
 nav {
   position: sticky;
   top: 0;
@@ -45,16 +56,17 @@ nav {
   padding: 18px 48px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0,0,0,0.04);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+[data-theme="dark"] nav {
+  background: rgba(2,6,23,0.75);
 }
 
 nav .logo {
-  font-size: 18px;
   font-weight: 800;
-  letter-spacing: 0.5px;
   color: var(--accent);
 }
 
@@ -67,92 +79,59 @@ nav a {
 }
 
 nav a::after {
-  content: '';
+  content: "";
   position: absolute;
-  left: 0;
   bottom: -6px;
+  left: 0;
   width: 0;
   height: 2px;
   background: var(--accent);
   transition: width 0.3s ease;
 }
 
-nav a:hover::after {
-  width: 100%;
+nav a:hover::after { width: 100%; }
+
+.toggle {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent);
 }
 
-/* ================= GLOBAL SECTIONS ================= */
-
+/* ================= GLOBAL ================= */
 .section {
   max-width: 1200px;
   margin: auto;
   padding: 120px 40px;
 }
 
-.section.alt {
-  background: var(--bg-alt);
-}
+.section.alt { background: var(--bg-alt); }
 
-h1 {
-  font-size: 64px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 12px;
-}
-
+h1 { font-size: 64px; font-weight: 800; }
 h2 {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 56px;
-  letter-spacing: -0.5px;
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 80px;
 }
+h3 { font-size: 20px; font-weight: 600; }
 
-h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.muted {
-  color: var(--muted);
-}
-
-/* ================= CARDS ================= */
-
-.card {
-  background: var(--card);
-  border-radius: 24px;
-  padding: 36px;
-  margin-bottom: 36px;
-  box-shadow:
-    0 20px 40px rgba(0,0,0,0.05),
-    0 1px 0 rgba(0,0,0,0.04);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 30px 60px rgba(0,0,0,0.08),
-    0 1px 0 rgba(0,0,0,0.04);
-}
+.muted { color: var(--muted); }
 
 /* ================= HERO ================= */
-
 .hero {
   min-height: 95vh;
   display: flex;
   align-items: center;
-  background:
-    radial-gradient(1000px 500px at 20% -10%, rgba(245,158,11,0.15), transparent),
-    linear-gradient(180deg, #020617, #020617 60%, #020617);
-  color: white;
   text-align: center;
+  color: white;
+  background:
+    radial-gradient(900px 400px at 20% -10%, rgba(37,99,235,0.25), transparent),
+    linear-gradient(180deg, #020617, #020617);
 }
 
 .hero p {
   font-size: 22px;
-  color: #cbd5f5;
+  color: #c7d2fe;
   max-width: 720px;
   margin: auto;
 }
@@ -161,132 +140,137 @@ h3 {
   display: inline-block;
   margin-top: 36px;
   padding: 16px 42px;
-  border-radius: 999px;
   background: white;
   color: #020617;
-  text-decoration: none;
+  border-radius: 999px;
   font-weight: 600;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+  transition: transform 0.25s ease;
 }
 
-.hero a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+.hero a:hover { transform: translateY(-4px); }
+
+/* ================= CARDS ================= */
+.card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: var(--shadow);
+  transition: transform 0.35s ease;
 }
 
-/* ================= ABOUT ================= */
+.card:hover { transform: translateY(-6px); }
 
-.about {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 72px;
-  align-items: center;
-}
-
-.about-text {
-  font-size: 18px;
-  margin-bottom: 22px;
-}
-
-.about img {
-  width: 100%;
-  border-radius: 32px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
-}
-
-/* ================= DOC LINKS ================= */
-
-.doc-links {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.doc {
+/* ================= LOGO ================= */
+.logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #fff;
   display: inline-flex;
   align-items: center;
-  padding: 14px 22px;
-  border-radius: 14px;
-  background: #f8fafc;
-  border: 1px solid var(--line);
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
-  transition: all 0.25s ease;
-}
-
-.doc:hover {
-  background: white;
-  border-color: var(--accent);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  transform: translateY(-3px);
-}
-
-/* ================= EXPERIENCE ================= */
-
-.exp-role {
-  font-weight: 700;
-}
-
-/* ================= PROJECTS ================= */
-
-#projects a {
-  text-decoration: none;
-  font-weight: 600;
+  justify-content: center;
+  font-weight: 800;
   color: var(--accent);
 }
 
-#projects a:hover {
-  text-decoration: underline;
+/* ================= TIMELINE ================= */
+.timeline {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
 }
 
-/* ================= SKILLS ================= */
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 36px;
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+  transform: translateX(-50%);
 }
 
-.skills-grid .card {
-  text-align: center;
+.timeline-item {
+  width: 50%;
+  padding: 0 40px 90px;
+  position: relative;
+}
+
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; }
+
+.timeline-dot {
+  position: absolute;
+  top: 10px;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px var(--accent-soft);
+}
+
+.timeline-item.left .timeline-dot { right: -11px; }
+.timeline-item.right .timeline-dot { left: -11px; }
+
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timeline-company {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.timeline-role {
+  color: var(--accent);
   font-weight: 600;
-  background:
-    linear-gradient(180deg, white, #fafafa);
 }
 
-/* ================= CONTACT ================= */
-
-#contact .doc {
-  background: linear-gradient(180deg, #020617, #020617);
-  color: white;
-  border: none;
+.timeline-date {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--highlight);
+  margin: 10px 0 16px;
 }
 
-/* ================= FOOTER ================= */
+.timeline-desc { color: var(--muted); }
 
-footer {
-  padding: 48px 24px;
-  text-align: center;
-  color: var(--muted);
-  background: #020617;
+/* ================= EDUCATION ================= */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+  gap: 48px;
+}
+
+/* ================= ANIMATIONS ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ================= RESPONSIVE ================= */
-
-@media(max-width: 900px){
+@media(max-width:900px){
   h1 { font-size: 48px; }
-  h2 { font-size: 30px; }
+  h2 { font-size: 32px; }
 
-  .about {
-    grid-template-columns: 1fr;
+  .timeline::before { left: 10px; }
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 50px;
+    text-align: left;
   }
-
-  nav {
-    padding: 16px 24px;
-  }
+  .timeline-dot { left: 2px !important; }
 }
 </style>
 </head>
@@ -299,9 +283,8 @@ footer {
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
+    <span class="toggle" onclick="toggleTheme()">🌙</span>
   </div>
 </nav>
 
@@ -313,124 +296,95 @@ footer {
   </div>
 </section>
 
-<section id="about" class="section alt">
-  <div class="about">
-    <div>
-      <h2>My Journey</h2>
-
-      <p class="about-text">
-        My passion lies in building efficient and reliable digital systems at the intersection
-        of RTL design, SoC architecture, and hardware acceleration.
-      </p>
-
-      <p class="about-text">
-        I am currently pursuing a Master’s degree in Electrical Engineering at the University
-        of Pennsylvania. I completed my undergraduate studies in Electrical and Electronics
-        Engineering at NIT Tiruchirappalli, India.
-      </p>
-
-      <p class="about-text">
-        Previously, I worked at Qualcomm as an RTL Design Engineer, contributing to production
-        IPs used in high-volume mobile SoCs across microarchitecture, RTL implementation,
-        CDC resolution, and post-code-freeze ECOs.
-      </p>
-
-      <p class="about-text">
-        I value clean, maintainable RTL and enjoy solving engineering problems that translate
-        directly into real silicon.
-      </p>
-    </div>
-
-    <img src="assets/profile_2.jpeg" alt="Rajath">
-  </div>
-</section>
-
 <section id="experience" class="section">
   <h2>Professional Experience</h2>
 
-  <div class="card">
-    <h3 class="exp-role">RTL Design Engineer — Qualcomm</h3>
-    <p class="muted">Jul 2023 – Aug 2025 · Bengaluru, India</p>
-    <p>
-      Led RTL design of CMSR and TCSR IPs for high-volume mobile SoCs. Architected centralized
-      fuse distribution logic eliminating ~60K retention flops, automated SoC integration
-      using Python and Tcl, resolved CDC/lint issues across 50+ cores, and executed ECOs
-      during MTO/BTO phases.
-    </p>
-  </div>
+  <div class="timeline">
 
-  <div class="card">
-    <h3 class="exp-role">RTL Design Intern — Qualcomm</h3>
-    <p class="muted">Jan 2023 – Jun 2023</p>
-    <p>
-      Assisted in RTL development and verification of SoC IP blocks with exposure to synthesis,
-      CDC analysis, linting, and post-code-freeze ECO flows on production silicon.
-    </p>
+    <div class="timeline-item left reveal">
+      <span class="timeline-dot"></span>
+      <div class="card">
+        <div class="timeline-header">
+          <div class="logo-img">Q</div>
+          <div class="timeline-company">Qualcomm</div>
+        </div>
+        <div class="timeline-role">RTL Design Engineer</div>
+        <div class="timeline-date">Jul 2023 – Aug 2025</div>
+        <div class="timeline-desc">
+          Led RTL design of CMSR and TCSR IPs for high-volume mobile SoCs. Architected centralized
+          fuse distribution logic eliminating ~60K retention flops, automated SoC integration using
+          Python and Tcl, resolved CDC/lint issues across 50+ cores, and executed ECOs during
+          post-code-freeze phases.
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item right reveal">
+      <span class="timeline-dot"></span>
+      <div class="card">
+        <div class="timeline-header">
+          <div class="logo-img">Q</div>
+          <div class="timeline-company">Qualcomm</div>
+        </div>
+        <div class="timeline-role">RTL Design Intern</div>
+        <div class="timeline-date">Jan 2023 – Jun 2023</div>
+        <div class="timeline-desc">
+          Assisted in RTL development and verification of SoC IP blocks with exposure to synthesis,
+          CDC analysis, linting, and production silicon workflows.
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <section id="education" class="section alt">
   <h2>Education</h2>
 
-  <div class="card">
-    <h3>University of Pennsylvania</h3>
-    <p class="muted">M.S. Electrical Engineering</p>
-    <div class="doc-links">
-      <a class="doc" href="assets/transcript-ms.pdf">MS Transcript</a>
+  <div class="edu-grid">
+    <div class="card reveal">
+      <h3>University of Pennsylvania</h3>
+      <p class="muted">M.S. Electrical Engineering</p>
     </div>
-  </div>
 
-  <div class="card">
-    <h3>NIT Tiruchirappalli</h3>
-    <p class="muted">B.Tech Electrical & Electronics Engineering</p>
-    <div class="doc-links">
-      <a class="doc" href="assets/transcript-btech.pdf">B.Tech Transcript</a>
+    <div class="card reveal">
+      <h3>NIT Tiruchirappalli</h3>
+      <p class="muted">B.Tech Electrical & Electronics Engineering</p>
     </div>
-  </div>
-</section>
-
-<section id="projects" class="section">
-  <h2>Projects</h2>
-
-  <div class="card">
-    <h3>Heterogeneous Compression Engine</h3>
-    <p>400 Mb/s real-time compression on ARM + FPGA</p>
-    <a href="projects/compression.html">View Project →</a>
-  </div>
-
-  <div class="card">
-    <h3>Hardware Cryptographic Accelerator</h3>
-    <p>AES-GCM, SHA-256, ECDSA/ECDH RTL accelerator</p>
-    <a href="projects/crypto.html">View Project →</a>
-  </div>
-
-  <div class="card">
-    <h3>CUDA Sparse Kernel Optimization</h3>
-    <p>Warp-specialized CSR SpMM kernels</p>
-    <a href="projects/cuda.html">View Project →</a>
-  </div>
-</section>
-
-<section id="skills" class="section alt">
-  <h2>Skills & Expertise</h2>
-
-  <div class="skills-grid">
-    <div class="card">RTL Design · ASIC · SoC · CDC/RDC · FPGA</div>
-    <div class="card">Verilog · SystemVerilog · C/C++ · Python · CUDA</div>
-    <div class="card">VCS · Verdi · Vivado · SpyGlass · Linux</div>
   </div>
 </section>
 
 <section id="contact" class="section">
   <h2>Contact</h2>
-  <div class="doc-links">
-    <a class="doc" href="mailto:rajathramana23@gmail.com">Email Me</a>
+  <div class="card reveal" style="text-align:center;">
+    <a href="mailto:rajathramana23@gmail.com">rajathramana23@gmail.com</a>
   </div>
 </section>
 
 <footer>
   © 2026 Rajath Ramana
 </footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const current = html.getAttribute("data-theme");
+  html.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+  localStorage.setItem("theme", html.getAttribute("data-theme"));
+}
+
+const saved = localStorage.getItem("theme");
+if(saved) document.documentElement.setAttribute("data-theme", saved);
+
+const reveals = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add("active");
+  });
+},{ threshold: 0.15 });
+
+reveals.forEach(r => observer.observe(r));
+</script>
 
 </body>
 </html>
