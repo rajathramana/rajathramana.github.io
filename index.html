@@ -14,7 +14,6 @@
   --text: #0f172a;
   --muted: #64748b;
   --accent: #f59e0b;
-  --blue: #2563eb;
   --line: #e5e7eb;
 }
 
@@ -28,11 +27,11 @@ body {
   line-height: 1.65;
 }
 
-/* ---------- NAVBAR ---------- */
+/* NAVBAR */
 nav {
   position: sticky;
   top: 0;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.9);
   backdrop-filter: blur(10px);
   padding: 16px 40px;
   display: flex;
@@ -56,7 +55,7 @@ nav a {
 
 nav a:hover { color: var(--text); }
 
-/* ---------- SECTIONS ---------- */
+/* SECTIONS */
 .section {
   max-width: 1100px;
   margin: auto;
@@ -74,7 +73,7 @@ h2 {
 }
 
 h3 {
-  margin: 0;
+  margin: 0 0 8px;
 }
 
 .card {
@@ -84,7 +83,11 @@ h3 {
   box-shadow: 0 20px 50px rgba(0,0,0,0.06);
 }
 
-/* ---------- HERO ---------- */
+.muted {
+  color: var(--muted);
+}
+
+/* HERO */
 .hero {
   min-height: 90vh;
   display: flex;
@@ -110,7 +113,7 @@ h3 {
   font-weight: 500;
 }
 
-/* ---------- ABOUT ---------- */
+/* ABOUT */
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -123,7 +126,7 @@ h3 {
   border-radius: 28px;
 }
 
-/* ---------- METRICS ---------- */
+/* METRICS */
 .metrics {
   display: flex;
   gap: 48px;
@@ -135,7 +138,7 @@ h3 {
   color: var(--accent);
 }
 
-/* ---------- TIMELINE ---------- */
+/* TIMELINE */
 .timeline {
   position: relative;
   margin-top: 48px;
@@ -161,28 +164,16 @@ h3 {
 
 .timeline-card {
   width: 44%;
-  position: relative;
 }
 
-.badge {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: #fff7ed;
-  color: var(--accent);
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
-/* ---------- SKILLS ---------- */
+/* SKILLS */
 .skills {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
   gap: 32px;
 }
 
-/* ---------- CONTACT ---------- */
+/* CONTACT */
 .contact {
   text-align: center;
 }
@@ -197,11 +188,18 @@ h3 {
   text-decoration: none;
 }
 
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 footer {
   text-align: center;
   padding: 32px;
   color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .about { grid-template-columns: 1fr; }
+  .timeline::before { left: 8px; }
+  .timeline-card { width: 100%; }
+  .timeline-item { justify-content: flex-start; }
 }
 </style>
 </head>
@@ -245,19 +243,12 @@ footer {
       <p>
         At Qualcomm, I’ve worked on production IPs that ship in real devices—designing complex
         RTL blocks, resolving CDC and integration issues, and optimizing PPA trade-offs under
-        real tape-out constraints. I enjoy working close to the hardware, where architectural
-        decisions directly translate into silicon behavior.
+        real tape-out constraints.
       </p>
       <div class="metrics">
-        <div class="metric">
-          <strong>2+</strong><br>Years Industry Experience
-        </div>
-        <div class="metric">
-          <strong>3</strong><br>Production IPs
-        </div>
-        <div class="metric">
-          <strong>50+</strong><br>SoC Cores Touched
-        </div>
+        <div class="metric"><strong>2+</strong><br>Years Industry</div>
+        <div class="metric"><strong>3</strong><br>Production IPs</div>
+        <div class="metric"><strong>50+</strong><br>SoC Cores</div>
       </div>
     </div>
     <img src="assets/profile.jpg" alt="Rajath Ramana">
@@ -269,32 +260,78 @@ footer {
   <h2>Professional Experience</h2>
 
   <div class="timeline">
-
     <div class="timeline-item left">
       <div class="timeline-card card">
-        <span class="badge">Jul 2023 – Aug 2025</span>
         <h3>RTL Design Engineer — Qualcomm</h3>
+        <p class="muted">Jul 2023 – Aug 2025 · Bengaluru, India</p>
         <p>
-          Led RTL design of CMSR and TCSR IPs used in high-volume mobile SoCs. Architected centralized
-          fuse distribution logic eliminating ~60K retention flops, automated SoC integration using
-          Python and Tcl, resolved CDC and lint issues across 50+ cores, and executed post-code-freeze
-          ECOs in coordination with DV and PD teams.
+          Led RTL design of CMSR and TCSR IPs for high-volume mobile SoCs. Architected centralized
+          fuse distribution logic eliminating ~60K retention flops, automated SoC integration
+          using Python and Tcl, resolved CDC/lint issues across 50+ cores, and executed ECOs
+          during MTO/BTO phases.
         </p>
       </div>
     </div>
 
     <div class="timeline-item right">
       <div class="timeline-card card">
-        <span class="badge">Jan 2023 – Jun 2023</span>
         <h3>RTL Design Intern — Qualcomm</h3>
+        <p class="muted">Jan 2023 – Jun 2023</p>
         <p>
-          Assisted in RTL development and verification of SoC IP blocks, gained hands-on exposure to
-          synthesis, CDC analysis, linting, and ECO flows while collaborating with senior designers
-          on production silicon.
+          Assisted in RTL development and verification of SoC IP blocks with hands-on exposure
+          to synthesis, CDC analysis, linting, and post-code-freeze ECO flows.
         </p>
       </div>
     </div>
+  </div>
+</section>
 
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <h2>Education</h2>
+
+  <div class="card" style="margin-bottom:32px;">
+    <h3>University of Pennsylvania</h3>
+    <p class="muted">M.S. in Electrical Engineering · Aug 2025 – Dec 2026</p>
+    <a href="assets/transcripts.pdf">Download Transcript</a>
+  </div>
+
+  <div class="card">
+    <h3>National Institute of Technology, Tiruchirappalli</h3>
+    <p class="muted">B.Tech in Electrical & Electronics Engineering · Jul 2019 – May 2023</p>
+    <a href="assets/transcripts.pdf">Download Transcript</a>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <h2>Projects</h2>
+
+  <div class="card" style="margin-bottom:32px;">
+    <h3>High-Throughput Heterogeneous Compression Engine</h3>
+    <p>
+      Designed a real-time compression pipeline achieving 400 Mb/s on an Ultra96 SoC by
+      partitioning computation across ARM cores, NEON intrinsics, and FPGA fabric.
+    </p>
+    <a href="assets/project-compression.pdf">View Project PDF</a>
+  </div>
+
+  <div class="card" style="margin-bottom:32px;">
+    <h3>Hardware Cryptographic Accelerator</h3>
+    <p>
+      Designed Verilog RTL for AES-GCM, SHA-256, and ECDSA/ECDH blocks, optimized through
+      cycle-level microarchitectural analysis and validated on FPGA.
+    </p>
+    <a href="assets/project-crypto.pdf">View Project PDF</a>
+  </div>
+
+  <div class="card">
+    <h3>CUDA-Accelerated Sparse Kernel Optimization</h3>
+    <p>
+      Developed optimized CSR SpMM kernels using warp specialization, reducing warp divergence
+      and improving GPU utilization.
+    </p>
+    <a href="assets/project-cuda.pdf">View Project PDF</a>
   </div>
 </section>
 
@@ -311,7 +348,7 @@ footer {
 <!-- CONTACT -->
 <section id="contact" class="section contact">
   <h2>Let’s Connect</h2>
-  <p>Open to ASIC, RTL design, and hardware acceleration opportunities.</p>
+  <p>Open to RTL, ASIC, and hardware acceleration opportunities.</p>
   <a href="mailto:rajathramana23@gmail.com">Email Me</a>
 </section>
 
