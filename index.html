@@ -1,235 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rajath Ramana</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rajath Ramana</title>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      background: #ffffff;
-      color: #111827;
-      font-family: 'Inter', sans-serif;
-      line-height: 1.75;
-    }
+<style>
+:root {
+  --bg: #f6f7f9;
+  --bg-alt: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #1e40af;
+  --line: #e5e7eb;
+}
 
-    .page {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 88px 24px 96px;
-      text-align: center;
-    }
+* { box-sizing: border-box; }
 
-    h1 {
-      font-size: 56px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-    }
+html { scroll-behavior: smooth; }
 
-    .subtitle {
-      font-size: 20px;
-      color: #4b5563;
-      margin-bottom: 40px;
-    }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+}
 
-    img.profile {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 32px;
-    }
+/* ---------- GLOBAL ---------- */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 32px;
+}
 
-    .summary {
-      max-width: 680px;
-      margin: 0 auto 48px;
-      font-size: 17px;
-      color: #1f2937;
-    }
+h1 {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
 
-    .links {
-      margin-bottom: 72px;
-      font-size: 16px;
-    }
+h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
 
-    .links a {
-      margin: 0 12px;
-      color: #1d4ed8;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
 
-    .links a:hover {
-      border-bottom: 1px solid #1d4ed8;
-    }
+p {
+  font-size: 18px;
+  color: #1f2937;
+}
 
-    h2 {
-      font-size: 28px;
-      font-weight: 600;
-      margin: 96px 0 32px;
-      letter-spacing: -0.01em;
-    }
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+}
 
-    .section {
-      max-width: 720px;
-      margin: 0 auto;
-      text-align: center;
-    }
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    .entry {
-      margin-bottom: 40px;
-    }
+/* ---------- HERO ---------- */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f6f7f9 0%, #eef2ff 100%);
+}
 
-    .entry-title {
-      font-size: 18px;
-      font-weight: 600;
-    }
+.hero-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 32px;
+}
 
-    .entry-meta {
-      font-size: 14px;
-      color: #6b7280;
-      margin-bottom: 10px;
-    }
+.hero h1 span {
+  color: var(--accent);
+}
 
-    .entry ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+.subtitle {
+  margin-top: 16px;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
 
-    .entry li {
-      margin-bottom: 8px;
-      font-size: 16px;
-      color: #1f2937;
-    }
+/* ---------- ABOUT ---------- */
+.about {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
 
-    .project-links a {
-      font-size: 15px;
-      color: #2563eb;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
+.about img {
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
 
-    .project-links a:hover {
-      border-bottom: 1px solid #2563eb;
-    }
+/* ---------- SKILLS ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 32px;
+}
 
-    footer {
-      margin-top: 120px;
-      font-size: 14px;
-      color: #9ca3af;
-    }
-  </style>
+.skill-card {
+  background: var(--bg-alt);
+  padding: 32px;
+  border-radius: 20px;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+.skill-card h3 {
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: var(--accent);
+}
+
+/* ---------- EXPERIENCE ---------- */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--line);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.timeline-card {
+  background: var(--bg-alt);
+  padding: 28px 32px;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+}
+
+/* ---------- PROJECTS ---------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 32px;
+}
+
+.project {
+  background: var(--bg-alt);
+  padding: 32px;
+  border-radius: 24px;
+  transition: transform .3s;
+}
+
+.project:hover {
+  transform: translateY(-6px);
+}
+
+.project a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.project a:hover {
+  border-bottom: 1px solid var(--accent);
+}
+
+/* ---------- DOCUMENTS ---------- */
+.docs {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.doc {
+  padding: 24px 36px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  transition: transform .3s;
+}
+
+.doc:hover {
+  transform: translateY(-4px);
+}
+
+/* ---------- CONTACT ---------- */
+.contact {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+}
+
+.contact h2 { color: white; }
+
+.contact a {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 36px;
+  background: var(--accent);
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background .3s;
+}
+
+.contact a:hover {
+  background: #1d4ed8;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 32px;
+  font-size: 14px;
+  color: var(--muted);
+}
+</style>
 </head>
 
 <body>
-  <div class="page">
 
-    <!-- HERO -->
-    <img src="assets/profile.jpg" alt="Rajath Ramana" class="profile">
-
-    <h1>Rajath Ramana</h1>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content fade">
+    <h1>Rajath <span>Ramana</span></h1>
     <div class="subtitle">
-      MS Electrical Engineering, University of Pennsylvania<br>
-      RTL Design · SoC Architecture · Hardware Acceleration
+      RTL DESIGN · SOC ARCHITECTURE · HARDWARE ACCELERATION
     </div>
-
-    <!-- SUMMARY -->
-    <div class="summary">
-      I am a Master’s student in Electrical Engineering at the University of Pennsylvania with prior
-      industry experience as an RTL Design Engineer at Qualcomm. My work focuses on ASIC and SoC
-      design, microarchitecture, and hardware acceleration, with an emphasis on performance, area,
-      and integration correctness.
-    </div>
-
-    <!-- LINKS -->
-    <div class="links">
-      <a href="mailto:rajathramana23@gmail.com">Email</a>
-      <a href="https://linkedin.com/in/rajath-r" target="_blank">LinkedIn</a>
-      <a href="assets/resume.pdf" target="_blank">Resume</a>
-      <a href="assets/transcripts.pdf" target="_blank">Transcripts</a>
-    </div>
-
-    <!-- EXPERIENCE -->
-    <h2>Experience</h2>
-    <div class="section">
-
-      <div class="entry">
-        <div class="entry-title">RTL Design Engineer — Qualcomm</div>
-        <div class="entry-meta">Jul 2023 – Aug 2025 · Hyderabad, India</div>
-        <ul>
-          <li>Led RTL design of CMSR and TCSR IPs from specification through tape-out in high-volume SoCs.</li>
-          <li>Designed centralized MEMRED/MEMACC fuse distribution, eliminating ~60K retention flops and improving efficiency by ~20%.</li>
-          <li>Automated SoC integration flows using Python and Tcl across multiple tape-outs.</li>
-          <li>Resolved lint and CDC issues across 50+ SoC cores, enabling clean synthesis and timing closure.</li>
-          <li>Executed post-code-freeze ECOs in coordination with DV and PD teams.</li>
-        </ul>
-      </div>
-
-      <div class="entry">
-        <div class="entry-title">Verification & FPGA Design Intern — VLSI Lab, NIT Trichy</div>
-        <div class="entry-meta">Jan 2022 – May 2022</div>
-        <ul>
-          <li>Built FPGA-based encryption accelerators achieving 15–20× throughput over software.</li>
-          <li>Developed RTL testbenches with directed and random testing, reaching ~85% functional coverage.</li>
-          <li>Validated clock/reset sequencing and system stability on hardware.</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- PROJECTS -->
-    <h2>Projects</h2>
-    <div class="section">
-
-      <div class="entry">
-        <div class="entry-title">High-Throughput Heterogeneous Compression Engine</div>
-        <ul>
-          <li>Designed a real-time compression pipeline achieving 400 Mb/s on Ultra96 SoC.</li>
-          <li>Partitioned computation across ARM cores, NEON intrinsics, and FPGA fabric.</li>
-          <li>Verified correctness using RTL testbenches and OpenCL host/device integration.</li>
-        </ul>
-        <div class="project-links">
-          <a href="assets/project-compression.pdf" target="_blank">Project write-up (PDF)</a>
-        </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-title">Hardware Cryptographic Accelerator for Secure Smart Metering</div>
-        <ul>
-          <li>Designed Verilog RTL for AES-GCM, SHA-256, and ECDSA/ECDH blocks.</li>
-          <li>Optimized datapaths via cycle-level microarchitectural analysis.</li>
-          <li>Validated on Basys-3 FPGA with 100% match to software golden models.</li>
-        </ul>
-        <div class="project-links">
-          <a href="assets/Smart-Meter_Encryption-1.pdf" target="_blank">Project report (PDF)</a>
-        </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-title">CUDA-Accelerated Sparse Kernel Optimization</div>
-        <ul>
-          <li>Developed optimized CSR SpMM kernels using warp specialization.</li>
-          <li>Reduced warp divergence by ~12% through access-pattern reorganization.</li>
-          <li>Benchmarked against PyTorch sparse operators.</li>
-        </ul>
-        <div class="project-links">
-          <a href="assets/project-cuda.pdf" target="_blank">Technical note (PDF)</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-      © 2026 Rajath Ramana
-    </footer>
-
   </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section fade">
+  <div class="about">
+    <div>
+      <h2>About</h2>
+      <p>
+        I am a Master’s student in Electrical Engineering at the University of Pennsylvania with
+        prior industry experience as an RTL Design Engineer at Qualcomm. My work centers on ASIC
+        and SoC design, microarchitecture, and performance-driven hardware development.
+      </p>
+    </div>
+    <img src="assets/profile.jpg" alt="Rajath Ramana">
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section fade">
+  <h2>Expertise</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>Hardware</h3>
+      RTL Design, ASIC/SoC, CDC/RDC, FPGA, PPA
+    </div>
+    <div class="skill-card">
+      <h3>Languages</h3>
+      Verilog, SystemVerilog, C/C++, Python, CUDA
+    </div>
+    <div class="skill-card">
+      <h3>Tools</h3>
+      VCS, Verdi, Vivado, SpyGlass, Vitis HLS
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section fade">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-card">
+        <h3>RTL Design Engineer — Qualcomm</h3>
+        <p class="muted">Jul 2023 – Aug 2025</p>
+        <p>
+          Led RTL design of production IPs, optimized fuse architectures removing ~60K flops,
+          automated SoC integration, and resolved CDC/lint issues across 50+ cores.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section fade">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project">
+      <h3>Heterogeneous Compression Engine</h3>
+      <p>400 Mb/s pipeline across ARM + NEON + FPGA.</p>
+      <a href="assets/project-compression.pdf">View project</a>
+    </div>
+    <div class="project">
+      <h3>Cryptographic Accelerator</h3>
+      <p>AES-GCM, SHA-256, ECDSA/ECDH RTL.</p>
+      <a href="assets/project-crypto.pdf">View project</a>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section class="section fade">
+  <h2>Documents</h2>
+  <div class="docs">
+    <a class="doc" href="assets/resume.pdf">Resume</a>
+    <a class="doc" href="assets/transcripts.pdf">Transcripts</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact">
+  <h2>Let’s Connect</h2>
+  <p>Interested in ASIC, SoC, or hardware acceleration roles.</p>
+  <a href="mailto:rajathramana23@gmail.com">Email Me</a>
+</section>
+
+<footer>
+  © 2026 Rajath Ramana
+</footer>
+
 </body>
 </html>
