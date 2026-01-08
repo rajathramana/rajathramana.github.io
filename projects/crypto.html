@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hardware Cryptographic Accelerator</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  background: #0b0f19;
+  color: #e5e7eb;
+  font-family: Inter, sans-serif;
+  line-height: 1.75;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 80px 24px;
+}
+h1 { font-size: 36px; margin-bottom: 24px; }
+h2 { font-size: 22px; margin-top: 48px; }
+ul { margin-left: 20px; }
+img {
+  width: 100%;
+  border-radius: 16px;
+  margin: 32px 0;
+}
+a { color: #f59e0b; text-decoration: none; }
+.back { display: inline-block; margin-top: 48px; }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>Hardware Cryptographic Accelerator</h1>
+
+<p>
+This project involves the RTL design of a modular cryptographic accelerator supporting
+<strong>AES-GCM, SHA-256, and ECDSA/ECDH</strong> for secure smart metering applications.
+The focus was on correctness, throughput, and area-efficient microarchitecture.
+</p>
+
+<h2>Architecture Overview</h2>
+<ul>
+  <li>Fully pipelined AES-GCM datapath with integrated GHASH</li>
+  <li>Iterative SHA-256 core optimized for resource reuse</li>
+  <li>ECC scalar multiplication using modular arithmetic blocks</li>
+</ul>
+
+<img src="../assets/crypto-arch.png" alt="Crypto architecture">
+
+<h2>Microarchitectural Optimizations</h2>
+<ul>
+  <li>Cycle-level analysis of GHASH and SHA scheduling</li>
+  <li>Resource sharing across cryptographic primitives</li>
+  <li>Latency-aware control FSM design</li>
+</ul>
+
+<h2>Validation</h2>
+<p>
+The design was verified using directed and randomized testbenches and validated on FPGA
+using a Basys-3 board. Functional correctness was confirmed against known test vectors.
+</p>
+
+<a class="back" href="../index.html">← Back to Home</a>
+
+</div>
+</body>
+</html>
