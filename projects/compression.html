@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Heterogeneous Compression Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  background: #0b0f19;
+  color: #e5e7eb;
+  font-family: Inter, sans-serif;
+  line-height: 1.75;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 80px 24px;
+}
+h1 {
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+h2 {
+  font-size: 22px;
+  margin-top: 48px;
+}
+ul {
+  margin-left: 20px;
+}
+img {
+  width: 100%;
+  border-radius: 16px;
+  margin: 32px 0;
+}
+a {
+  color: #f59e0b;
+  text-decoration: none;
+}
+.back {
+  display: inline-block;
+  margin-top: 48px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>High-Throughput Heterogeneous Compression Engine</h1>
+
+<p>
+This project focuses on designing a real-time data compression pipeline capable of sustaining
+<strong>400 Mb/s throughput</strong> on an Ultra96 SoC by leveraging heterogeneous compute resources.
+The goal was to minimize latency while efficiently utilizing CPU, SIMD, and FPGA fabric.
+</p>
+
+<h2>System Architecture</h2>
+<p>
+The pipeline partitions computation across multiple processing elements to eliminate bottlenecks:
+</p>
+
+<ul>
+  <li><strong>ARM Cortex-A53:</strong> control logic, buffering, and data orchestration</li>
+  <li><strong>NEON intrinsics:</strong> vectorized preprocessing and symbol preparation</li>
+  <li><strong>FPGA fabric:</strong> hardware-accelerated LZW compression</li>
+</ul>
+
+<img src="../assets/compression-arch.png" alt="Compression architecture">
+
+<h2>Implementation Details</h2>
+<ul>
+  <li>Designed a streaming architecture to avoid memory stalls</li>
+  <li>Used DMA-based transfers to overlap computation and I/O</li>
+  <li>Implemented hardware/software synchronization using OpenCL</li>
+</ul>
+
+<h2>Verification & Results</h2>
+<p>
+End-to-end verification was performed using RTL testbenches and host-device integration.
+The final system achieved sustained throughput without packet loss under continuous Ethernet streaming.
+</p>
+
+<a class="back" href="../index.html">← Back to Home</a>
+
+</div>
+</body>
+</html>
