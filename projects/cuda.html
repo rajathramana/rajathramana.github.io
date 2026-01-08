@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CUDA-Accelerated Sparse Kernel Optimization</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  background: #0b0f19;
+  color: #e5e7eb;
+  font-family: Inter, sans-serif;
+  line-height: 1.75;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 80px 24px;
+}
+h1 { font-size: 36px; margin-bottom: 24px; }
+h2 { font-size: 22px; margin-top: 48px; }
+ul { margin-left: 20px; }
+img {
+  width: 100%;
+  border-radius: 16px;
+  margin: 32px 0;
+}
+a { color: #f59e0b; text-decoration: none; }
+.back { display: inline-block; margin-top: 48px; }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>CUDA-Accelerated Sparse Kernel Optimization</h1>
+
+<p>
+This project explores optimization techniques for sparse matrix–matrix multiplication (SpMM)
+on GPUs using the CSR format. The goal was to improve utilization and reduce warp divergence
+for irregular sparsity patterns.
+</p>
+
+<h2>Key Techniques</h2>
+<ul>
+  <li>Warp specialization based on row density</li>
+  <li>Vectorized memory access using warp-level primitives</li>
+  <li>Minimized branch divergence through structured control flow</li>
+</ul>
+
+<img src="../assets/cuda-arch.png" alt="CUDA kernel design">
+
+<h2>Performance Insights</h2>
+<ul>
+  <li>Reduced idle warps for skewed sparsity distributions</li>
+  <li>Improved memory coalescing for CSR access</li>
+  <li>Better SM occupancy compared to baseline kernels</li>
+</ul>
+
+<h2>Outcome</h2>
+<p>
+The optimized kernel demonstrated measurable speedups over naïve CSR implementations,
+especially for medium-density sparse matrices common in graph and ML workloads.
+</p>
+
+<a class="back" href="../index.html">← Back to Home</a>
+
+</div>
+</body>
+</html>
