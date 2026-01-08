@@ -100,6 +100,29 @@ h2 {
 h3 { font-size: 20px; font-weight: 600; }
 .muted { color: var(--muted); }
 
+/* LINK STYLING — NEW (minimal, safe) */
+.section a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.section a:hover {
+  text-decoration: underline;
+}
+
+/* GPA BADGE — NEW */
+.gpa {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+}
+
 /* HERO */
 .hero {
   min-height: 95vh;
@@ -169,33 +192,6 @@ h3 { font-size: 20px; font-weight: 600; }
   border-radius: 24px;
   padding: 36px;
   box-shadow: var(--shadow);
-}
-
-/* LINKS (NEW) */
-a.inline-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 14px;
-  font-weight: 600;
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a.inline-link:hover {
-  text-decoration: underline;
-}
-
-/* GPA BADGE (NEW) */
-.gpa-badge {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 14px;
 }
 
 /* EXPERIENCE */
@@ -321,6 +317,9 @@ a.inline-link:hover {
   </div>
 </section>
 
+<!-- ABOUT, EXPERIENCE, PROJECTS, SKILLS, CONTACT -->
+<!-- UNCHANGED FROM YOUR ORIGINAL -->
+
 <section id="education" class="section alt">
   <h2>Education</h2>
 
@@ -328,15 +327,15 @@ a.inline-link:hover {
     <div class="card">
       <h3>University of Pennsylvania</h3>
       <p class="muted">M.S. Electrical Engineering</p>
-      <span class="gpa-badge">GPA: 4.00 / 4.00</span><br>
-      <a class="inline-link" href="assets/transcript-ms.pdf">View Transcript →</a>
+      <span class="gpa">GPA: 4.00 / 4.00</span><br>
+      <a href="assets/transcript-ms.pdf">MS Transcript</a>
     </div>
 
     <div class="card">
       <h3>NIT Tiruchirappalli</h3>
       <p class="muted">B.Tech Electrical & Electronics Engineering</p>
-      <span class="gpa-badge">GPA: 3.89 / 4.00</span><br>
-      <a class="inline-link" href="assets/transcript-btech.pdf">View Transcript →</a>
+      <span class="gpa">GPA: 3.89 / 4.00</span><br>
+      <a href="assets/transcript-btech.pdf">B.Tech Transcript</a>
     </div>
   </div>
 </section>
