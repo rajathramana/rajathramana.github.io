@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Rajath Ramana</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -20,8 +19,6 @@
   --highlight: #f59e0b;
   --line: #e5e7eb;
   --shadow: 0 24px 50px rgba(0,0,0,0.08);
-  --serif: 'Playfair Display', serif;
-  --sans: 'Inter', sans-serif;
 }
 
 [data-theme="dark"] {
@@ -42,7 +39,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: var(--sans);
+  font-family: 'Inter', sans-serif;
   background: var(--bg-main);
   color: var(--text);
   line-height: 1.75;
@@ -94,8 +91,8 @@ nav a {
 
 h1 { font-size: 64px; font-weight: 800; }
 h2 {
-  font-family: var(--serif);
-  font-size: 42px;
+  font-size: 38px;
+  font-weight: 800;
   text-align: center;
   margin-bottom: 72px;
 }
@@ -220,12 +217,6 @@ h3 { font-size: 20px; font-weight: 600; }
   gap: 36px;
 }
 
-.projects-grid a {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-}
-
 /* SKILLS */
 .skills-grid {
   display: grid;
@@ -236,7 +227,7 @@ h3 { font-size: 20px; font-weight: 600; }
 .skill-pill {
   padding: 20px;
   border-radius: 18px;
-  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  background: #f8fafc;
   border: 1px solid var(--line);
   font-weight: 600;
   text-align: center;
@@ -307,10 +298,37 @@ h3 { font-size: 20px; font-weight: 600; }
   <div class="about">
     <div>
       <h2>My Journey</h2>
-      <p class="about-text">My passion lies in building efficient and reliable digital systems at the intersection of RTL design, SoC architecture, and hardware acceleration.</p>
-      <p class="about-text">I am currently pursuing a Master’s degree in Electrical Engineering at the University of Pennsylvania.</p>
-      <p class="about-text">Previously, I worked at Qualcomm as an RTL Design Engineer on production mobile SoCs.</p>
+
+      <p class="about-text">
+        My passion lies in designing efficient and reliable digital systems at the intersection
+        of RTL design, SoC microarchitecture, and hardware acceleration. I enjoy translating
+        architectural ideas into clean, production-quality RTL that scales to real silicon.
+      </p>
+
+      <p class="about-text">
+        Currently, I’m pursuing a Master’s degree in Electrical Engineering at the University
+        of Pennsylvania. I completed my undergraduate degree in Electrical and Electronics
+        Engineering at the National Institute of Technology Tiruchirappalli, India.
+      </p>
+
+      <p class="about-text">
+        Previously, I worked as an RTL Design Engineer at Qualcomm, where I contributed to
+        production IPs used in high-volume mobile SoCs across microarchitecture definition,
+        RTL implementation, CDC resolution, automation flows, and post-code-freeze ECOs.
+      </p>
+
+      <p class="about-text">
+        I have also worked on hardware–software co-design projects and accelerators during
+        my academic career, including compression engines, cryptographic accelerators,
+        and GPU kernel optimizations.
+      </p>
+
+      <p class="about-text">
+        During my undergraduate studies, I actively contributed to technical clubs and
+        collaborative engineering projects, mentoring peers and engaging in research-driven work.
+      </p>
     </div>
+
     <img src="assets/profile_2.jpeg" alt="Rajath">
   </div>
 </section>
@@ -324,7 +342,10 @@ h3 { font-size: 20px; font-weight: 600; }
       <div class="card">
         <h3>Qualcomm</h3>
         <p class="muted">RTL Design Engineer · Jul 2023 – Aug 2025</p>
-        <p>Led RTL design of CMSR and TCSR IPs, eliminated ~60K retention flops, automated SoC integration, resolved CDC issues, and executed ECOs.</p>
+        <p>
+          Led RTL design of CMSR and TCSR IPs, eliminated ~60K retention flops, automated SoC
+          integration, resolved CDC issues across 50+ cores, and executed ECOs on production silicon.
+        </p>
       </div>
     </div>
 
@@ -333,42 +354,71 @@ h3 { font-size: 20px; font-weight: 600; }
       <div class="card">
         <h3>Qualcomm</h3>
         <p class="muted">RTL Design Intern · Jan 2023 – Jun 2023</p>
-        <p>Assisted in RTL development and verification with exposure to synthesis, CDC analysis, and production silicon workflows.</p>
+        <p>
+          Assisted in RTL development and verification with exposure to synthesis, CDC analysis,
+          linting, and post-code-freeze workflows.
+        </p>
       </div>
     </div>
 
   </div>
 </section>
 
+<section id="education" class="section alt">
+  <h2>Education</h2>
+
+  <div class="projects-grid">
+    <div class="card">
+      <h3>University of Pennsylvania</h3>
+      <p class="muted">M.S. Electrical Engineering</p>
+      <a href="assets/transcript-ms.pdf">MS Transcript</a>
+    </div>
+
+    <div class="card">
+      <h3>NIT Tiruchirappalli</h3>
+      <p class="muted">B.Tech Electrical & Electronics Engineering</p>
+      <a href="assets/transcript-btech.pdf">B.Tech Transcript</a>
+    </div>
+  </div>
+</section>
+
 <section id="projects" class="section">
   <h2>Projects</h2>
+
   <div class="projects-grid">
     <div class="card">
       <h3>Heterogeneous Compression Engine</h3>
+      <p>400 Mb/s real-time compression on ARM + FPGA</p>
       <a href="projects/compression.html">View Project →</a>
     </div>
+
     <div class="card">
       <h3>Hardware Cryptographic Accelerator</h3>
+      <p>AES-GCM, SHA-256, ECDSA/ECDH RTL accelerator</p>
       <a href="projects/crypto.html">View Project →</a>
     </div>
+
     <div class="card">
       <h3>CUDA Sparse Kernel Optimization</h3>
+      <p>Warp-specialized CSR SpMM kernels</p>
       <a href="projects/cuda.html">View Project →</a>
     </div>
   </div>
 </section>
 
 <section id="skills" class="section alt">
-  <h2>Skills</h2>
+  <h2>Skills & Expertise</h2>
+
   <div class="skills-grid">
-    <div class="skill-pill">RTL · ASIC · SoC · FPGA</div>
-    <div class="skill-pill">Verilog · SystemVerilog · C/C++ · Python</div>
-    <div class="skill-pill">VCS · Verdi · Vivado · Linux</div>
+    <div class="skill-pill">RTL Design · ASIC · SoC · CDC/RDC · FPGA</div>
+    <div class="skill-pill">Verilog · SystemVerilog · C/C++ · Python · CUDA</div>
+    <div class="skill-pill">VCS · Verdi · Vivado · SpyGlass · Linux</div>
   </div>
 </section>
 
 <section id="contact" class="section">
   <h2>Contact</h2>
+
   <div class="contact-card">
     <p>Let’s build something meaningful.</p>
     <a href="mailto:rajathramana23@gmail.com">Email Me</a>
