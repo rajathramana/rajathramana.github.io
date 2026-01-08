@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rajath Ramana | RTL & SoC Engineer</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-[#0b0f19] text-gray-200">
+
+<!-- ================= NAVBAR ================= -->
+<header class="fixed w-full z-50 bg-[#0b0f19]/80 backdrop-blur border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-lg font-semibold">Rajath Ramana</h1>
+    <nav class="space-x-6 text-sm">
+      <a href="#about" class="hover:text-white">About</a>
+      <a href="#experience" class="hover:text-white">Experience</a>
+      <a href="#projects" class="hover:text-white">Projects</a>
+      <a href="#skills" class="hover:text-white">Skills</a>
+      <a href="#contact" class="hover:text-white">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="pt-32 pb-24">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-5xl font-extrabold text-white leading-tight">
+      RTL Design & SoC Engineer
+    </h2>
+    <p class="mt-6 text-lg text-gray-400 max-w-3xl mx-auto">
+      MS Electrical Engineering @ UPenn · Former Qualcomm RTL Engineer ·  
+      Focused on ASIC design, SoC microarchitecture, and hardware acceleration.
+    </p>
+
+    <div class="mt-10 flex justify-center gap-6">
+      <a href="assets/resume.pdf" target="_blank"
+         class="px-6 py-3 rounded-lg bg-white text-black font-medium hover:bg-gray-200 transition">
+        Download Resume
+      </a>
+      <a href="https://linkedin.com/in/rajath-r" target="_blank"
+         class="px-6 py-3 rounded-lg border border-white/20 hover:border-white transition">
+        LinkedIn
+      </a>
+      <a href="https://github.com/" target="_blank"
+         class="px-6 py-3 rounded-lg border border-white/20 hover:border-white transition">
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-24 bg-[#0f1525]">
+  <div class="max-w-5xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-white mb-6">About Me</h3>
+    <p class="text-gray-300 leading-relaxed text-lg">
+      I am a Master’s student in Electrical Engineering at the University of Pennsylvania with
+      industry experience as an RTL Design Engineer at Qualcomm. My work spans RTL development,
+      SoC integration, accelerator microarchitectures, and performance/area optimization.
+      <br><br>
+      I enjoy translating specifications into efficient silicon implementations, debugging
+      complex clock/reset interactions, and collaborating across design, verification,
+      and physical design teams to bring reliable hardware to tape-out.
+    </p>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience" class="py-24">
+  <div class="max-w-5xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-white mb-12">Experience</h3>
+
+    <div class="space-y-12">
+
+      <div>
+        <h4 class="text-xl font-semibold text-white">
+          RTL Design Engineer — Qualcomm
+        </h4>
+        <p class="text-sm text-gray-400 mb-4">Jul 2023 – Aug 2025 · Hyderabad, India</p>
+        <ul class="list-disc list-inside text-gray-300 space-y-2">
+          <li>Led RTL design for CMSR & TCSR IPs from specification to tape-out in high-volume SoCs.</li>
+          <li>Architected centralized fuse distribution logic, eliminating ~60K retention flops and improving efficiency by ~20%.</li>
+          <li>Automated SoC integration flows using Python and Tcl, reducing manual errors across tape-outs.</li>
+          <li>Resolved Lint and CDC issues across 50+ cores, enabling timing closure and clean sign-off.</li>
+          <li>Executed post-code-freeze ECOs in MTO/BTO phases, coordinating with DV and PD teams.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xl font-semibold text-white">
+          Verification & FPGA Design Intern — NIT Trichy
+        </h4>
+        <p class="text-sm text-gray-400 mb-4">Jan 2022 – May 2022</p>
+        <ul class="list-disc list-inside text-gray-300 space-y-2">
+          <li>Prototyped FPGA-based encryption accelerators achieving 15–20× speedup over software.</li>
+          <li>Developed RTL testbenches with directed/random testing, reaching ~85% coverage.</li>
+          <li>Validated system stability on hardware with clean clock/reset sequencing.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="py-24 bg-[#0f1525]">
+  <div class="max-w-6xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-white mb-12">Projects</h3>
+
+    <div class="grid md:grid-cols-2 gap-10">
+
+      <div class="p-6 rounded-xl bg-[#0b0f19] border border-white/10">
+        <h4 class="text-xl font-semibold text-white mb-3">
+          High-Throughput Heterogeneous Compression Engine
+        </h4>
+        <p class="text-gray-400 mb-4">ARM · NEON · FPGA · OpenCL</p>
+        <ul class="list-disc list-inside text-gray-300 space-y-2">
+          <li>Designed a real-time compression pipeline achieving 400 Mb/s on Ultra96 SoC.</li>
+          <li>Partitioned workload across ARM cores, NEON intrinsics, and FPGA fabric.</li>
+          <li>Verified end-to-end correctness using RTL testbenches and Ethernet streaming.</li>
+        </ul>
+      </div>
+
+      <div class="p-6 rounded-xl bg-[#0b0f19] border border-white/10">
+        <h4 class="text-xl font-semibold text-white mb-3">
+          Hardware Cryptographic Accelerator
+        </h4>
+        <p class="text-gray-400 mb-4">Verilog · AES-GCM · SHA-256 · ECC</p>
+        <ul class="list-disc list-inside text-gray-300 space-y-2">
+          <li>Designed RTL for AES-GCM, SHA-256, and ECDSA/ECDH blocks.</li>
+          <li>Optimized datapaths via cycle-level analysis of cryptographic primitives.</li>
+          <li>Validated on Basys-3 FPGA with 100% match to software golden models.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="py-24">
+  <div class="max-w-5xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-white mb-8">Skills</h3>
+
+    <div class="grid md:grid-cols-3 gap-8 text-gray-300">
+      <div>
+        <h4 class="font-semibold text-white mb-3">Hardware & Architecture</h4>
+        <p>RTL Design, ASIC/SoC Microarchitecture, CDC/RDC, PPA Analysis, FPGA</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-white mb-3">Languages</h4>
+        <p>Verilog, SystemVerilog, C/C++, Python, Tcl, CUDA</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-white mb-3">Tools</h4>
+        <p>VCS, Verdi, Vivado, SpyGlass CDC, ModelSim, Vitis HLS, Linux</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="py-24 bg-[#0f1525]">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h3 class="text-3xl font-bold text-white mb-6">Contact</h3>
+    <p class="text-gray-300 mb-8">
+      Interested in ASIC, RTL, or hardware acceleration opportunities.
+    </p>
+    <p class="text-lg">
+      📧 <a href="mailto:rajathramana23@gmail.com" class="underline hover:text-white">
+        rajathramana23@gmail.com
+      </a>
+    </p>
+  </div>
+</section>
+
+<footer class="py-6 text-center text-gray-500 text-sm">
+  © 2026 Rajath Ramana
+</footer>
+
+</body>
+</html>
